@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 14:30:46 by gykoh             #+#    #+#             */
-/*   Updated: 2023/06/25 16:25:21 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/06/25 20:52:36 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ int	ft_putstr(char *str)
 	return (len);
 }
 
-int	ft_putnbr(long long nb)
+int	ft_putnbr(long long n)
 {
 	int	len;
 
 	len = 0;
-	if (nb < 0)
+	if (n < 0)
 	{
 		len += ft_putchar('-');
-		nb *= -1;
+		n *= -1;
 	}
-	if (nb >= 10)
-		len += ft_putnbr(nb / 10);
-	len += ft_putchar(nb % 10 + '0');
+	if (n >= 10)
+		len += ft_putnbr(n / 10);
+	len += ft_putchar(n % 10 + '0');
 	return (len);
 }
 
