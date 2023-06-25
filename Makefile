@@ -1,22 +1,27 @@
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
+HEADER = ft_printf.h
 
-SRCS =	ft_printf.c ft_print_args.c
-
+SRCS = ft_printf.c ft_printer.c
 OBJS = $(SRCS:.c=.o)
-CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
-$(NAME):$(OBJS)
-	ar -cr $(NAME) $(OBJS) 
+$(NAME): $(OBJS)
+	ar -rc $(NAME) $(OBJS)
 
-%.o:%.c ft_printf.h
-	cc $(CFLAGS) -o $@ -c $<
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
 	rm -rf $(OBJS)
 
-fclean:clean
+fclean: clean
 	rm -rf $(NAME)
 
-re: fclean all
+re: 
+	$(MAKE) fclean
+	$(MAKE) all
+
+.PHONY: all clean fclean re
