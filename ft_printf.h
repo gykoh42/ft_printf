@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:41:31 by gykoh             #+#    #+#             */
-/*   Updated: 2023/06/25 20:52:51 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/06/28 18:37:23 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int	ft_putchar(char c);
 int	ft_putstr(char *str);
 int	ft_putnbr(long long n);
 int	ft_puthex(unsigned long n, int flag);
+int	ft_putaddr(unsigned long n);
 
 #endif

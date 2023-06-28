@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 14:30:42 by gykoh             #+#    #+#             */
-/*   Updated: 2023/06/25 21:23:40 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/06/28 19:43:59 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,23 @@
 
 int	ft_check(char c, va_list *args)
 {
-	int	len;
-
-	len = 0;
 	if (c == 'c')
-		len += ft_putchar(va_arg(*args, int));
+		return (ft_putchar(va_arg(*args, int)));
 	else if (c == 's')
-		len += ft_putstr(va_arg(*args, char *));
+		return (ft_putstr(va_arg(*args, char *)));
 	else if (c == 'd' || c == 'i')
-		len += ft_putnbr(va_arg(*args, int));
+		return (ft_putnbr(va_arg(*args, int)));
 	else if (c == 'u')
-		len += ft_putnbr(va_arg(*args, unsigned int));
+		return (ft_putnbr(va_arg(*args, unsigned int)));
 	else if (c == 'x')
-		len += ft_puthex(va_arg(*args, unsigned int), 0);
+		return (ft_puthex(va_arg(*args, unsigned int), 0));
 	else if (c == 'X')
-		len += ft_puthex(va_arg(*args, unsigned int), 1);
+		return (ft_puthex(va_arg(*args, unsigned int), 1));
 	else if (c == 'p')
-	{
-		len += ft_putstr("0x");
-		len += ft_puthex(va_arg(*args, unsigned long), 0);
-	}
+		return (ft_putaddr(va_arg(*args, unsigned long)));
 	else if (c == '%')
-		len += ft_putchar('%');
-	return (len);
+		return (ft_putchar('%'));
+	return (0);
 }
 
 int	ft_printf(const char *format, ...)
